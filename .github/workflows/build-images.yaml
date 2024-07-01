@@ -3,6 +3,40 @@
 name: "Image Build"
 
 on:
+  workflow_dispatch:
+    inputs:
+      appsToBuild:
+        required: false
+        type: string
+        default: ""
+        description: Apps to build
+      channelsToBuild:
+        required: false
+        type: string
+        default: ""
+        description: Channels to build
+      pushImages:
+        required: false
+        default: false
+        type: boolean
+        description: Push images
+      sendNotifications:
+        required: false
+        default: false
+        type: boolean
+        description: Send notifications
+      force:
+        required: false
+        default: true
+        type: boolean
+        description: Force rebuild
+    secrets:
+      BOT_APP_ID:
+        description: The App ID of the GitHub App
+        required: true
+      BOT_APP_PRIVATE_KEY:
+        description: The private key of the GitHub App
+        required: true
   workflow_call:
     inputs:
       appsToBuild:
