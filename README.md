@@ -2,12 +2,11 @@
 NOTE: AUTO-GENERATED FILE
 to edit this file, instead edit its template at: ./github/scripts/templates/README.md.j2
 -->
-<div align="center">
-
 
 ## Containers
 
 Forked from https://github.com/onedr0p/containers for personal use and customizations.
+
 Full credits to the repo mentioned above.
 
 ## Available Images
