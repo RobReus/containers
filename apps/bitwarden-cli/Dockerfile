@@ -9,7 +9,7 @@ RUN apt update && \
     unzip bw-linux-${VERSION}.zip && \
     chmod +x bw && \
     mv bw /usr/local/bin/bw && \
-    rm -fv *.zip \
+    rm -fv bw-linux-${VERSION}.zip
 
 COPY ./apps/bitwarden-cli/entrypoint.sh /
 
