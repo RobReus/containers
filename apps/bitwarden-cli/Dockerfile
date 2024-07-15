@@ -16,4 +16,6 @@ COPY --from=build /dist/bw /usr/local/bin/bw
 
 COPY ./apps/bitwarden-cli/entrypoint.sh /
 
+RUN chmod +x /entrypoint.sh
+
 CMD ["/entrypoint.sh"]
