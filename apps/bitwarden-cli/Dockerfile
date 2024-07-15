@@ -14,6 +14,6 @@ FROM docker.io/library/alpine:3.20
 
 COPY --from=build /dist/bw /usr/local/bin/bw
 
-COPY entrypoint.sh /
+COPY ./apps/bitwarden-cli/entrypoint.sh /
 
 CMD ["/entrypoint.sh"]
