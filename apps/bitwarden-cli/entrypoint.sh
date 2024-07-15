@@ -8,7 +8,7 @@ if [[ ! -z "${BW_APPID}" ]]; then
     exit 1
   fi
   mkdir -p ${BITWARDENCLI_APPDATA_DIR}
-  echo "{\"appId\": \"${BW_APPID}\"}" > ${BITWARDENCLI_APPDATA_DIR}/data.json
+  echo "{\"global_applicationId_appId\": \"${BW_APPID}\"}" > ${BITWARDENCLI_APPDATA_DIR}/data.json
 fi
 
 bw config server ${BW_HOST}
