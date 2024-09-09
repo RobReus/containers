@@ -17,6 +17,7 @@ Container | Channel | Image
 --- | --- | ---
 [actions-runner](https://github.com/RobReus/containers/pkgs/container/actions-runner) | stable | ghcr.io/RobReus/actions-runner
 [bitwarden-cli](https://github.com/RobReus/containers/pkgs/container/bitwarden-cli) | stable | ghcr.io/RobReus/bitwarden-cli
+[papermc](https://github.com/RobReus/containers/pkgs/container/papermc) | stable | ghcr.io/RobReus/papermc
 
 
 ## Deprecations
