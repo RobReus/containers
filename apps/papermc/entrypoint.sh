@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enter server directory
-cd papermc
+#cd papermc
 
 # Update eula.txt with current setting
 echo "eula=${EULA:-false}" > eula.txt
@@ -13,4 +13,4 @@ then
 fi
 
 # Start server
-exec java -server $JAVA_FLAGS -jar papermc.jar $PAPERMC_FLAGS nogui
+exec java -server $JAVA_FLAGS -jar /papermc.jar $PAPERMC_FLAGS nogui
