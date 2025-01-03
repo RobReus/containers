@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -x
-VERSION=$(curl -sX GET https://papermc.io/api/v2/projects/paper | jq -r '.versions[-1]')
-BUILD=$(curl -sX GET https://papermc.io/api/v2/projects/paper/versions/${VERSION} | jq -r '.builds[-1]')
+VERSION=$(curl -sX GET https://api.papermc.io/v2/projects/paper | jq -r '.versions[-1]')
+BUILD=$(curl -sX GET https://api.papermc.io/v2/projects/paper/versions/${VERSION}/builds | jq '.builds | .[-1] | .build')
 FULL="${VERSION}-${BUILD}"
 printf "%s" "${VERSION}-${BUILD}"
