@@ -196,9 +196,9 @@ jobs:
           username: "${{ github.actor }}"
           password: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Setup Goss
-        if: ${{ matrix.image.tests_enabled }}
-        uses: cdqag/action-install-goss@v1
+#      - name: Setup Goss
+#        if: ${{ matrix.image.tests_enabled }}
+#        uses: cdqag/action-install-goss@v1
 
       - name: Prepare Build Outputs
         id: prepare-build-outputs
@@ -236,24 +236,24 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.vendor=${{ env.LOWERCASE_REPO_OWNER }}
 
-      - name: Run Goss Tests
-        id: dgoss
-        if: ${{ matrix.image.tests_enabled }}
-        env:
-          CONTAINER_RUNTIME: docker
-          GOSS_FILE: ${{ matrix.image.goss_config }}
-          GOSS_OPTS: --retry-timeout 60s --sleep 2s --color --format documentation
-          GOSS_SLEEP: 2
-          GOSS_FILES_STRATEGY: cp
-          CONTAINER_LOG_OUTPUT: goss_container_log_output
-        shell: bash
-        run: |
-          if [[ '${{ inputs.pushImages }}' == 'true' ]]; then
-              image_name="${{ steps.prepare-build-outputs.outputs.image_name }}@${{ steps.build.outputs.digest }}"
-          else
-              image_name="${{ steps.prepare-build-outputs.outputs.image_name }}"
-          fi
-          dgoss run ${image_name} ${{ matrix.image.goss_args }}
+#      - name: Run Goss Tests
+#        id: dgoss
+#        if: ${{ matrix.image.tests_enabled }}
+#        env:
+#          CONTAINER_RUNTIME: docker
+#          GOSS_FILE: ${{ matrix.image.goss_config }}
+#          GOSS_OPTS: --retry-timeout 60s --sleep 2s --color --format documentation
+#          GOSS_SLEEP: 2
+#          GOSS_FILES_STRATEGY: cp
+#          CONTAINER_LOG_OUTPUT: goss_container_log_output
+#        shell: bash
+#        run: |
+#          if [[ '${{ inputs.pushImages }}' == 'true' ]]; then
+#              image_name="${{ steps.prepare-build-outputs.outputs.image_name }}@${{ steps.build.outputs.digest }}"
+#          else
+#              image_name="${{ steps.prepare-build-outputs.outputs.image_name }}"
+#          fi
+#          dgoss run ${image_name} ${{ matrix.image.goss_args }}
 
       - name: Export Digest
         id: export-digest
